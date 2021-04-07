@@ -1,10 +1,11 @@
 import React, { useContext} from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext} from '../../context/UserContext';
+import './Navbar.scss'
 
 export const Navbar = () => {
 
-    const {user, setUser} = useContext(UserContext);
+    const {user} = useContext(UserContext);
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -15,7 +16,9 @@ export const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav">
                     <Link className="nav-link active" aria-current="page" to="/list">Gallery</Link>
-                    <Link className="nav-link" to="/login">{user ? `Hello, ${user.name}`: 'Login' }</Link>
+                    <div className="navbar-nav-controls">
+                        <Link className="nav-link" to="/login">{user ? `Hello, ${user.name}`: 'Login' }</Link>
+                    </div>
                 </div>
                 </div>
             </div>

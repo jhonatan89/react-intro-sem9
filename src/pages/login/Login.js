@@ -8,7 +8,7 @@ export const Login = () => {
 
     return (
         <div className="container login">
-           <h1>Login</h1>
+           {!user ? <h1>Login</h1> : <h1>Logout</h1> }
            {!user && <button className="btn btn-primary sign-up" onClick={ () => setUser({id: 1, name: 'isis3710'})}>Sign up</button>}
            {user && <button className="btn btn-warning" onClick={ () => setUser(null)}>Logout</button>}
            <pre>{user ? JSON.stringify(user) : 'No data'}</pre> 
