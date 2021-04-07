@@ -8,7 +8,7 @@ function App() {
   //let products= [];
 
   const [darkMode, setDarkMode] = useState(false);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   
 
   return (

@@ -1,21 +1,18 @@
 import { Card } from '../../components/card/Card';
-import React,  {useEffect, useState, useContext} from 'react'
-import { UserContext } from '../../context/UserContext';
+import React,  {useEffect, useState} from 'react'
+import './ProductList.scss'
 
 
 export const ProductList = () => {
     
     const [products, setProducts] = useState([]);
-    const {user} = useContext(UserContext)
-    
-  
+     
     useEffect(() => {
       getItems('tablets').then((data) => setProducts(data.results));
     }, []) 
   
   
     const getItems = async (query) => {
-      debugger
       const url = 'https://api.mercadolibre.com/sites/MLA/search';
       return fetch(`${url}?q=${query}`).then(getJSON);
     };
@@ -25,8 +22,7 @@ export const ProductList = () => {
     
     
     return (
-        <div>
-            <pre>{JSON.stringify(user)}</pre>
+        <div className="container product-list">
            {products.map((prod) => 
                 <Card key={prod.id} title={prod.title} price={prod.price} location={prod.address.state_name} image={prod.thumbnail}></Card>
             )} 
