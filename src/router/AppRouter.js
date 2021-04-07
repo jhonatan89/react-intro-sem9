@@ -5,8 +5,8 @@ import {
     Route,
     Link
   } from "react-router-dom";
-import { Login } from '../pages/Login';
-import { ProductList } from '../pages/ProductList';
+import { Login } from '../pages/login/Login';
+import { ProductList } from '../pages/product-list/ProductList';
 import { Navbar} from '../components/nav/Navbar';
 
 export const AppRouter = () => {
